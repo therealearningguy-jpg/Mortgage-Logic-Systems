@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>15 Qualified Mortgage Appointments Per Month — Guaranteed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:       #F5F2ED;
+      --bg-2:     #EDEAE3;
+      --bg-dark:  #192032;
+      --bg-card:  #FFFFFF;
+      --navy:     #1E2D4E;
+      --navy-lt:  #2A3F6F;
+      --navy-dim: rgba(30,45,78,.1);
+      --navy-bdr: rgba(30,45,78,.2);
+      --sage:     #5B7B5E;
+      --sage-lt:  #6E9472;
+      --sage-dim: rgba(91,123,94,.1);
+      --sage-bdr: rgba(91,123,94,.25);
+      --amber:    #B07D3A;
+      --amber-lt: #C99040;
+      --ink:      #191B22;
+      --muted:    #5C5F6B;
+      --hairline: rgba(25,27,34,.09);
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Barlow', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration:none; color:inherit; }
+    h1,h2,h3,h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -.5px;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .hl { color: var(--amber-lt); font-weight: 900; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 9px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--sage); margin-bottom: 18px;
+    }
+    .eyebrow::before { content:''; width:24px; height:2px; background: var(--sage); flex-shrink:0; }
+
+    .reveal { opacity:0; transform:translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity:1; transform:translateY(0); }
+    .d1 { transition-delay:.1s; } .d2 { transition-delay:.2s; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.3; } }
+    @keyframes btn-glow { 0%,100% { box-shadow: 0 0 0 0 rgba(201,144,64,.0), 0 8px 32px rgba(30,45,78,.35); } 50% { box-shadow: 0 0 0 8px rgba(201,144,64,.18), 0 8px 32px rgba(30,45,78,.35); } }
+
+    /* ── CTA BUTTON — the star of the show ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      background: linear-gradient(135deg, var(--amber) 0%, var(--amber-lt) 50%, #E0A832 100%);
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 900;
+      padding: 22px 56px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      text-shadow: 0 1px 2px rgba(0,0,0,.25);
+      /* Resting state — already commands attention */
+      box-shadow:
+        0 4px 0 #8A5E1A,
+        0 8px 32px rgba(176,125,58,.45),
+        0 2px 8px rgba(0,0,0,.2);
+      transition: transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s ease;
+      animation: btn-glow 3s ease-in-out infinite;
+    }
+    /* Shimmer sweep */
+    .btn::before {
+      content:'';
+      position:absolute; top:0; left:-100%; width:60%; height:100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,.28), transparent);
+      transform: skewX(-20deg);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    @keyframes shimmer { 0%,60% { left:-100%; } 80%,100% { left:130%; } }
+    .btn::after {
+      content:'';
+      position:absolute; inset:0;
+      border-radius:6px;
+      border: 1px solid rgba(255,255,255,.22);
+      pointer-events:none;
+    }
+    .btn:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow:
+        0 6px 0 #8A5E1A,
+        0 16px 48px rgba(176,125,58,.55),
+        0 4px 12px rgba(0,0,0,.25);
+      animation: none;
+    }
+    .btn:active {
+      transform: translateY(1px) scale(.99);
+      box-shadow: 0 2px 0 #8A5E1A, 0 4px 16px rgba(176,125,58,.35);
+    }
+    .btn-txt, .btn-arr { position:relative; z-index:2; }
+    .btn-arr { font-size:20px; transition:transform .25s; }
+    .btn:hover .btn-arr { transform:translateX(6px); }
+
+    /* Dark bg variant — same button on dark sections */
+    .btn-hero {
+      /* slightly larger on hero */
+      font-size: 20px;
+      padding: 26px 64px;
+    }
+
+    /* ── HERO ── */
+    .hero { min-height:100svh; position:relative; overflow:hidden; display:flex; align-items:center; }
+    .hero-video-wrap { position:absolute; inset:0; z-index:0; }
+    .hero-video-wrap video {
+      width:100%; height:100%; object-fit:cover; object-position:center; display:block;
+      filter: brightness(.68) saturate(.88);
+    }
+    .hero-video-wrap::before {
+      content:''; position:absolute; inset:0;
+      background: linear-gradient(105deg, rgba(25,32,50,.94) 0%, rgba(25,32,50,.85) 35%, rgba(25,32,50,.3) 58%, rgba(25,32,50,.0) 75%);
+      z-index:1;
+    }
+    .hero-video-wrap::after {
+      content:''; position:absolute; bottom:0; left:0; right:0; height:200px;
+      background: linear-gradient(to top, var(--bg) 0%, transparent 100%); z-index:1;
+    }
+    .hero-left { position:relative; z-index:2; padding:120px 7% 150px; max-width:640px; }
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:9px;
+      background:rgba(176,125,58,.18); border:1px solid rgba(176,125,58,.45);
+      border-radius:3px; padding:8px 16px;
+      font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase;
+      color:var(--amber-lt); margin-bottom:32px; width:fit-content;
+      animation: fadeUp .7s ease both;
+    }
+    .hero-badge-dot { width:6px; height:6px; background:var(--amber-lt); border-radius:50%; animation:pulse 2s infinite; }
+    .hero h1 { font-size:clamp(52px,6.5vw,96px); color:#fff; margin-bottom:22px; animation:fadeUp .65s .08s ease both; line-height:.97; }
+    .hero h1 .hl { color:var(--amber-lt); }
+    .hero h1 .ul { text-decoration:underline; text-decoration-color:var(--sage-lt); text-underline-offset:6px; text-decoration-thickness:3px; }
+    .hero-sub {
+      font-size:clamp(14px,1.3vw,16px); color:rgba(255,255,255,.6);
+      max-width:440px; line-height:1.75; font-weight:500;
+      margin-bottom:40px; animation:fadeUp .65s .16s ease both;
+    }
+    .hero-sub strong { color:rgba(255,255,255,.9); font-weight:700; }
+    .hero-kpis {
+      display:flex; align-items:center; flex-wrap:wrap;
+      margin-bottom:48px; padding-bottom:36px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+      animation:fadeUp .65s .22s ease both;
+    }
+    .kpi { display:flex; flex-direction:column; gap:3px; padding-right:28px; }
+    .kpi-n { font-family:'Barlow Condensed',sans-serif; font-size:50px; font-weight:900; color:var(--amber-lt); line-height:1; letter-spacing:-1px; }
+    .kpi-l { font-size:9px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:rgba(255,255,255,.4); }
+    .kpi-sep { width:1px; height:38px; background:rgba(255,255,255,.12); margin-right:28px; }
+    .hero-cta { animation:fadeUp .65s .3s ease both; }
+    .hero-cta-note { margin-top:12px; font-size:11px; color:rgba(255,255,255,.35); font-weight:500; }
+
+    /* ── SERVICES ── */
+    .services { padding:100px 7%; background:var(--bg); }
+    .services-head { margin-bottom:52px; }
+    .services-head h2 { font-size:clamp(34px,4.4vw,58px); max-width:580px; }
+    .services-head h2 span { color:var(--navy); }
+    .services-head p { margin-top:12px; color:var(--muted); font-size:14px; font-weight:500; max-width:460px; line-height:1.75; }
+    .s-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .s-card {
+      background:var(--bg-card); border:1px solid var(--hairline); border-radius:4px;
+      padding:38px 28px; cursor:default; position:relative; overflow:hidden;
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease;
+    }
+    .s-card::after { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--navy); transform:scaleX(0); transform-origin:left; transition:transform .4s ease; }
+    .s-card:hover::after { transform:scaleX(1); }
+    .s-card:hover { box-shadow:0 16px 48px rgba(30,45,78,.1); transform:translateY(-4px); }
+    .s-tag { font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--sage); margin-bottom:20px; display:block; }
+    .s-card h3 { font-size:20px; margin-bottom:10px; line-height:1.1; }
+    .s-card h3 span { color:var(--navy); }
+    .s-card p { color:var(--muted); font-size:13.5px; line-height:1.75; font-weight:500; }
+    .s-pills { display:flex; flex-wrap:wrap; gap:7px; margin-top:22px; }
+    .pill { font-size:9px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:5px 11px; border-radius:3px; border:1px solid var(--navy-bdr); color:var(--navy-lt); background:var(--navy-dim); }
+
+    /* ── WHO ── */
+    .who { padding:100px 7%; background:var(--bg-dark); }
+    .who-wrap { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
+    .who-left h2 { font-size:clamp(32px,3.8vw,52px); margin-bottom:36px; color:#fff; }
+    .who-left h2 span { color:var(--amber-lt); }
+    .who-checks { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .who-checks li {
+      display:flex; gap:14px; align-items:flex-start;
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07);
+      border-radius:4px; padding:18px 20px; cursor:default;
+      transition: border-color .25s, background .25s, transform .3s cubic-bezier(.34,1.56,.64,1);
+    }
+    .who-checks li:hover { border-color:rgba(176,125,58,.4); background:rgba(176,125,58,.06); transform:translateX(6px); }
+    .chk {
+      min-width:20px; height:20px; background:rgba(176,125,58,.15); border:1px solid rgba(176,125,58,.4);
+      border-radius:3px; display:flex; align-items:center; justify-content:center;
+      font-size:9px; font-weight:800; color:var(--amber-lt); flex-shrink:0; margin-top:2px;
+    }
+    .who-checks li div strong { display:block; font-size:13.5px; font-weight:700; color:#fff; margin-bottom:3px; }
+    .who-checks li div span { font-size:12.5px; color:rgba(255,255,255,.45); line-height:1.65; font-weight:500; }
+    .who-checks li div span .hl { color:var(--amber-lt); font-weight:700; }
+
+    .not-for-you { background:var(--bg); border-radius:4px; overflow:hidden; position:sticky; top:36px; box-shadow:0 24px 64px rgba(0,0,0,.3); }
+    .nfy-header { background:var(--navy); padding:24px 28px; }
+    .nfy-header h3 { font-size:18px; color:#fff; line-height:1.15; }
+    .nfy-header p  { font-size:11.5px; color:rgba(255,255,255,.5); margin-top:6px; font-weight:500; }
+    .nfy-items { list-style:none; }
+    .nfy-item { display:grid; grid-template-columns:46px 1fr; border-bottom:1px solid var(--hairline); transition:background .2s; }
+    .nfy-item:last-child { border-bottom:none; }
+    .nfy-item:hover { background:rgba(30,45,78,.04); }
+    .nfy-number { display:flex; align-items:center; justify-content:center; font-family:'Barlow Condensed',sans-serif; font-size:15px; font-weight:800; color:var(--navy); border-right:1px solid var(--hairline); }
+    .nfy-content { padding:16px 20px; }
+    .nfy-content strong { display:block; font-size:13px; font-weight:700; color:var(--ink); margin-bottom:3px; }
+    .nfy-content span { font-size:12px; color:var(--muted); line-height:1.65; font-weight:500; }
+    .nfy-footer { background:var(--sage-dim); border-top:1px solid var(--sage-bdr); padding:16px 24px; display:flex; gap:10px; align-items:center; }
+    .nfy-footer-icon { color:var(--sage); font-weight:800; font-size:13px; flex-shrink:0; }
+    .nfy-footer p { font-size:12px; color:var(--ink); line-height:1.6; font-weight:500; }
+    .nfy-footer strong { color:var(--sage); }
+
+    /* ── PRICING ── */
+    .pricing { padding:100px 7%; background:var(--bg-2); }
+    .pricing-head { margin-bottom:52px; }
+    .pricing-head h2 { font-size:clamp(32px,4vw,54px); max-width:540px; }
+    .pricing-head h2 span { color:var(--navy); }
+    .pricing-head p { margin-top:12px; color:var(--muted); font-size:14px; font-weight:500; line-height:1.75; max-width:460px; }
+    .metrics { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:20px; }
+    .metric {
+      background:var(--bg-card); border:1px solid var(--hairline); border-radius:4px;
+      padding:40px 32px; cursor:default; position:relative; overflow:hidden;
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease;
+    }
+    .metric:hover { transform:translateY(-4px); box-shadow:0 16px 48px rgba(30,45,78,.1); }
+    .metric::before { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:var(--sage); opacity:0; transition:opacity .3s; }
+    .metric:hover::before { opacity:1; }
+    .metric-n { font-family:'Barlow Condensed',sans-serif; font-size:60px; font-weight:900; color:var(--navy); line-height:1; letter-spacing:-2px; display:block; }
+    .metric-title { font-family:'Barlow Condensed',sans-serif; font-size:14px; font-weight:800; letter-spacing:.5px; text-transform:uppercase; color:var(--ink); margin:12px 0 7px; }
+    .metric-l { font-size:13px; color:var(--muted); line-height:1.7; font-weight:500; }
+
+    .guarantee { background:var(--bg-dark); border-radius:4px; overflow:hidden; margin-top:20px; }
+    .guarantee-top { padding:22px 38px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; border-bottom:1px solid rgba(255,255,255,.07); }
+    .guarantee-label { font-family:'Barlow Condensed',sans-serif; font-size:20px; font-weight:900; color:#fff; text-transform:uppercase; }
+    .guarantee-badge { background:rgba(176,125,58,.18); border:1px solid rgba(176,125,58,.4); border-radius:3px; font-size:9px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--amber-lt); padding:4px 10px; }
+    .guarantee-body { padding:36px 38px; display:grid; grid-template-columns:1fr 1fr; gap:36px; }
+    .guarantee-body h4 { font-size:clamp(16px,2vw,22px); margin-bottom:10px; color:#fff; line-height:1.2; }
+    .guarantee-body h4 span { color:var(--amber-lt); }
+    .guarantee-body > div:first-child p { font-size:13.5px; color:rgba(255,255,255,.45); line-height:1.8; font-weight:500; }
+    .g-list { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .g-list li { display:flex; gap:10px; align-items:flex-start; font-size:13px; color:rgba(255,255,255,.5); line-height:1.6; font-weight:500; }
+    .g-list li::before { content:'✓'; color:var(--sage-lt); font-weight:800; flex-shrink:0; }
+
+    /* ── CTA SECTION ── */
+    .cta { padding:120px 7%; background:var(--bg); text-align:center; position:relative; overflow:hidden; }
+    .cta::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg, transparent, var(--navy-bdr), transparent); }
+    /* large ambient glow behind button area */
+    .cta::after {
+      content:''; position:absolute;
+      bottom:0; left:50%; transform:translateX(-50%);
+      width:600px; height:300px;
+      background: radial-gradient(ellipse, rgba(176,125,58,.12) 0%, transparent 70%);
+      pointer-events:none;
+    }
+    .cta-inner { position:relative; z-index:1; max-width:580px; margin:0 auto; }
+    .cta-inner h2 { font-size:clamp(38px,5.5vw,72px); margin-bottom:16px; }
+    .cta-inner h2 span { color:var(--navy); }
+    .cta-inner > p { color:var(--muted); font-size:clamp(14px,1.4vw,16px); line-height:1.75; margin-bottom:44px; font-weight:500; }
+
+    /* Button wrapper — adds a halo ring that pulses */
+    .btn-wrap {
+      display: inline-block;
+      position: relative;
+      border-radius: 10px;
+    }
+    .btn-wrap::before {
+      content:'';
+      position:absolute;
+      inset:-6px;
+      border-radius:12px;
+      background: linear-gradient(135deg, rgba(201,144,64,.4), rgba(30,45,78,.3), rgba(201,144,64,.4));
+      opacity:0;
+      transition: opacity .3s;
+      z-index:0;
+      filter: blur(8px);
+    }
+    .btn-wrap:hover::before { opacity:1; }
+
+    .cta-sub {
+      margin-top:18px; font-size:10px; color:var(--muted);
+      display:flex; align-items:center; justify-content:center; gap:22px; flex-wrap:wrap;
+    }
+    .cta-sub span { display:flex; align-items:center; gap:6px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; }
+    .cta-sub span::before { content:'✓'; color:var(--sage); font-weight:800; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width:1024px) {
+      .hero-left { padding:110px 6% 130px; max-width:100%; }
+      .s-grid { grid-template-columns:1fr; gap:12px; }
+      .who-wrap { grid-template-columns:1fr; gap:40px; }
+      .not-for-you { position:static; }
+      .metrics { grid-template-columns:1fr; gap:12px; }
+      .guarantee-body { grid-template-columns:1fr; gap:22px; }
+      .kpi-sep { display:none; }
+      .kpi { padding-right:22px; }
+    }
+    @media (max-width:640px) {
+      .hero-left, .services, .who, .pricing, .cta { padding-left:5%; padding-right:5%; }
+      .btn, .btn-hero { width:100%; justify-content:center; padding:22px 24px; }
+      .metric-n { font-size:50px; }
+      .guarantee-top { padding:18px 20px; }
+      .guarantee-body { padding:24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-video-wrap">
+      <video autoplay muted loop playsinline>
+        <source src="hero-video.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="hero-left">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        For Independent UK Mortgage Brokers Only
+      </div>
+      <h1>
+        <span class="hl">15 Qualified</span><br>
+        Appointments.<br>
+        Every Month.<br>
+        <span class="ul">Or You Don't Pay.</span>
+      </h1>
+      <p class="hero-sub">
+        Complete lead generation and automation — built in <strong>60 days</strong>, running without you, <strong>guaranteed.</strong>
+      </p>
+      <div class="hero-kpis">
+        <div class="kpi"><span class="kpi-n">60</span><span class="kpi-l">Days to Live</span></div>
+        <div class="kpi-sep"></div>
+        <div class="kpi"><span class="kpi-n">15</span><span class="kpi-l">Appts / Month</span></div>
+        <div class="kpi-sep"></div>
+        <div class="kpi"><span class="kpi-n">60s</span><span class="kpi-l">Follow-Up</span></div>
+      </div>
+      <div class="hero-cta">
+        <div class="btn-wrap">
+          <a href="#" class="btn btn-hero">
+            <span class="btn-txt">Book Your Free 20-Min Call</span>
+            <span class="btn-arr">→</span>
+          </a>
+        </div>
+        <p class="hero-cta-note">No pitch. No pressure. Just clarity.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services">
+    <div class="services-head reveal">
+      <span class="eyebrow">What I Do</span>
+      <h2>The <span>full system</span> — ads, automation, booked appointments.</h2>
+      <p>Not just leads. The entire engine — built for you, running without you.</p>
+    </div>
+    <div class="s-grid">
+      <div class="s-card reveal">
+        <span class="s-tag">01 — Meta Ads</span>
+        <h3>Reach the <span>Right Borrower</span></h3>
+        <p>Targeted campaigns for first-time buyers, remortgage clients, self-employed, or investors. <strong style="color:var(--ink)">Every pound aimed at the right person.</strong></p>
+        <div class="s-pills"><span class="pill">Facebook Ads</span><span class="pill">Instagram Ads</span><span class="pill">Weekly Optimisation</span></div>
+      </div>
+      <div class="s-card reveal d1">
+        <span class="s-tag">02 — Automation</span>
+        <h3><span>Instant Follow-Up.</span> Zero Work.</h3>
+        <p>Every lead gets an SMS and email <strong style="color:var(--ink)">within 60 seconds.</strong> Qualified, nurtured, and booked — without you touching a message.</p>
+        <div class="s-pills"><span class="pill">60s Follow-Up</span><span class="pill">CRM Integration</span><span class="pill">SMS &amp; Email</span></div>
+      </div>
+      <div class="s-card reveal d2">
+        <span class="s-tag">03 — Acquisition</span>
+        <h3>Pre-Qualified Appointments <span>on Your Calendar</span></h3>
+        <p>Not a list of names. <strong style="color:var(--ink)">Pre-warmed borrowers</strong> with confirmed income, deposit, and a 1–6 month timeline — ready to move.</p>
+        <div class="s-pills"><span class="pill">Pre-Qualification</span><span class="pill">Calendar Booking</span><span class="pill">Quality Filters</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO -->
+  <section class="who">
+    <div class="who-wrap">
+      <div class="who-left reveal">
+        <span class="eyebrow" style="color:var(--amber-lt);">Who It's For</span>
+        <h2>Brokers stuck in <span>feast or famine.</span></h2>
+        <ul class="who-checks">
+          <li>
+            <div class="chk">✓</div>
+            <div>
+              <strong>Independent brokers across the UK</strong>
+              <span><span class="hl">Good at your craft</span> — but your pipeline runs on referrals you can't control.</span>
+            </div>
+          </li>
+          <li>
+            <div class="chk">✓</div>
+            <div>
+              <strong>You tried ads — and got nothing</strong>
+              <span><span class="hl">The problem wasn't Meta.</span> Nobody built the system behind the ad.</span>
+            </div>
+          </li>
+          <li>
+            <div class="chk">✓</div>
+            <div>
+              <strong>You're done chasing leads manually</strong>
+              <span>When referrals dry up, there's <span class="hl">nothing to backfill them.</span></span>
+            </div>
+          </li>
+          <li>
+            <div class="chk">✓</div>
+            <div>
+              <strong>You want a system — not another job</strong>
+              <span>A <span class="hl">done-for-you engine</span> so you focus entirely on closing.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="who-right reveal d1">
+        <div class="not-for-you">
+          <div class="nfy-header">
+            <h3>This isn't for you if...</h3>
+            <p>I'd rather be upfront now than waste both our time.</p>
+          </div>
+          <ul class="nfy-items">
+            <li class="nfy-item">
+              <div class="nfy-number">01</div>
+              <div class="nfy-content">
+                <strong>You ghost your own calendar</strong>
+                <span>Booked appointments need someone to show up.</span>
+              </div>
+            </li>
+            <li class="nfy-item">
+              <div class="nfy-number">02</div>
+              <div class="nfy-content">
+                <strong>Your niche changes weekly</strong>
+                <span>Consistent results require a consistent target. Pick your lane.</span>
+              </div>
+            </li>
+            <li class="nfy-item">
+              <div class="nfy-number">03</div>
+              <div class="nfy-content">
+                <strong>You want me to fix broken closing habits</strong>
+                <span>I fill the calendar. What happens on those calls is on you.</span>
+              </div>
+            </li>
+            <li class="nfy-item">
+              <div class="nfy-number">04</div>
+              <div class="nfy-content">
+                <strong>You're testing on a shoestring</strong>
+                <span>This system needs your commitment as much as mine.</span>
+              </div>
+            </li>
+          </ul>
+          <div class="nfy-footer">
+            <div class="nfy-footer-icon">→</div>
+            <p>None of that you? <strong>You're exactly who this is built for.</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing">
+    <div class="pricing-head reveal">
+      <span class="eyebrow">Pricing</span>
+      <h2><span>One closed deal</span> covers everything.</h2>
+      <p>One mortgage case pays you <span class="hl">£800–£1,500.</span> My entire fee is covered by a single closing. Everything after is <span class="hl">pure profit.</span></p>
+    </div>
+    <div class="metrics">
+      <div class="metric reveal">
+        <span class="metric-n">£400</span>
+        <div class="metric-title">One-Time Setup</div>
+        <p class="metric-l">Full system live within <strong style="color:var(--ink)">14 days.</strong> Landing page, CRM, ads, automation — everything.</p>
+      </div>
+      <div class="metric reveal d1">
+        <span class="metric-n">£700</span>
+        <div class="metric-title">Monthly Retainer</div>
+        <p class="metric-l"><strong style="color:var(--ink)">Weekly optimisation,</strong> funnel improvements, CRM, and monthly reporting.</p>
+      </div>
+      <div class="metric reveal d2">
+        <span class="metric-n">+£25</span>
+        <div class="metric-title">Performance Bonus</div>
+        <p class="metric-l">Per appointment <strong style="color:var(--ink)">above 10/month.</strong> You only pay more when I deliver more.</p>
+      </div>
+    </div>
+    <div class="guarantee reveal">
+      <div class="guarantee-top">
+        <div class="guarantee-label">The Guarantee</div>
+        <div class="guarantee-badge">60-Day Performance Promise</div>
+      </div>
+      <div class="guarantee-body">
+        <div>
+          <h4>Under 10 qualified appointments in 60 days? <span>I keep working — free — until you have them.</span></h4>
+          <p>No vague promises. Either the system delivers — or I work for free.</p>
+        </div>
+        <ul class="g-list">
+          <li>You take the calls and give feedback</li>
+          <li>I handle all fixes at zero charge</li>
+          <li>You pay for results — not promises</li>
+          <li>No result yet? No next invoice.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-inner reveal">
+      <span class="eyebrow" style="justify-content:center;">One Step</span>
+      <h2>20 minutes. <span>Zero pressure.</span></h2>
+      <p>I'll walk you through the exact system I'd build for your niche.<br><strong style="color:var(--ink)">You leave knowing exactly what's possible.</strong></p>
+      <div class="btn-wrap">
+        <a href="#" class="btn">
+          <span class="btn-txt">Book Your Free 20-Min Call</span>
+          <span class="btn-arr">→</span>
+        </a>
+      </div>
+      <div class="cta-sub">
+        <span>No pitch</span>
+        <span>System walkthrough</span>
+        <span>Guarantee backed</span>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
