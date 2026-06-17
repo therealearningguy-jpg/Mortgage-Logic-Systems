@@ -1,7 +1,3 @@
-
-bash
-
-cat > /mnt/user-data/outputs/index.html << 'ENDOFFILE'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,33 +6,22 @@ cat > /mnt/user-data/outputs/index.html << 'ENDOFFILE'
   <title>15 Qualified Mortgage Appointments Per Month — Mortgage Logic Systems</title>
 
   <!-- ═══════════════════════════════════════════
-       META PIXEL — Replace YOUR_PIXEL_ID below
-       with your actual pixel ID from Meta Events Manager
+       PERFORMANCE: preconnect + preload critical assets
+       so the browser starts fetching them immediately,
+       in parallel with everything else.
   ═══════════════════════════════════════════ -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'YOUR_PIXEL_ID'); // ← REPLACE THIS
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- END META PIXEL -->
+  <link rel="preload" as="video" href="assets/hero-video.mp4" type="video/mp4" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/hero-poster.jpg" fetchpriority="high" />
+  <link rel="preconnect" href="https://assets.calendly.com" />
+  <link rel="preconnect" href="https://calendly.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://connect.facebook.net" />
 
-  <!-- Calendly popup widget -->
+  <!-- Calendly popup widget CSS -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet" />
 
   <style>
@@ -98,51 +83,44 @@ cat > /mnt/user-data/outputs/index.html << 'ENDOFFILE'
     }
 
     /* ══════════════════════════════════
-       NAVBAR
+       NAVBAR — merged into the hero (transparent, no bar, no CTA)
     ══════════════════════════════════ */
     .nav {
-      position: fixed;
+      position: absolute;
       top: 0; left: 0; right: 0;
-      z-index: 100;
+      z-index: 10;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0 6%;
-      height: 72px;
-      background: rgba(25,32,50,.88);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255,255,255,.07);
+      justify-content: center;
+      padding: 28px 6%;
+      background: transparent;
+      border-bottom: none;
     }
     .nav-logo { height: 44px; width: auto; display:block; }
-    .nav-cta {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: var(--orange);
-      color: #fff;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px; font-weight: 900;
-      padding: 11px 28px; border-radius: 4px;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      cursor: pointer; border: none;
-      transition: transform .2s, box-shadow .2s, background .2s;
-      box-shadow: 0 3px 0 #A03D00, 0 6px 20px rgba(232,96,10,.35);
-    }
-    .nav-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 0 #A03D00, 0 10px 28px rgba(232,96,10,.45);
-      background: #FF6D12;
-    }
-    .nav-cta:active { transform:translateY(1px); box-shadow:0 1px 0 #A03D00; }
 
     /* ══════════════════════════════════
        HERO
     ══════════════════════════════════ */
     .hero { min-height:100svh; position:relative; overflow:hidden; display:flex; align-items:center; }
-    .hero-video-wrap { position:absolute; inset:0; z-index:0; }
+    .hero-video-wrap {
+      position:absolute; inset:0; z-index:0;
+      background: radial-gradient(ellipse at 30% 20%, #2A3F6F 0%, var(--bg-dark) 55%, #0D111C 100%);
+    }
+    .hero-video-wrap img.poster {
+      position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;
+      filter: brightness(.68) saturate(.88);
+      opacity:1; transition:opacity .5s ease;
+    }
     .hero-video-wrap video {
+      position:absolute; inset:0;
       width:100%; height:100%; object-fit:cover; object-position:center; display:block;
       filter: brightness(.68) saturate(.88);
+      opacity:0; transition:opacity .6s ease;
     }
+    .hero-video-wrap video.is-ready { opacity:1; }
+    .hero-video-wrap video.is-ready ~ img.poster,
+    .hero-video-wrap img.poster.hide { opacity:0; }
+    .hero-video-wrap.video-fallback video { display:none; }
     .hero-video-wrap::before {
       content:''; position:absolute; inset:0;
       background:linear-gradient(105deg,rgba(25,32,50,.94) 0%,rgba(25,32,50,.85) 35%,rgba(25,32,50,.3) 58%,rgba(25,32,50,.0) 75%);
@@ -152,7 +130,7 @@ cat > /mnt/user-data/outputs/index.html << 'ENDOFFILE'
       content:''; position:absolute; bottom:0; left:0; right:0; height:200px;
       background:linear-gradient(to top,var(--bg) 0%,transparent 100%); z-index:1;
     }
-    .hero-left { position:relative; z-index:2; padding:140px 7% 160px; max-width:640px; }
+    .hero-left { position:relative; z-index:2; padding:170px 7% 160px; max-width:640px; }
     .hero-badge {
       display:inline-flex; align-items:center; gap:9px;
       background:rgba(176,125,58,.18); border:1px solid rgba(176,125,58,.45);
@@ -226,6 +204,7 @@ cat > /mnt/user-data/outputs/index.html << 'ENDOFFILE'
     .btn-arr { font-size:20px;transition:transform .25s; }
     .btn:hover .btn-arr { transform:translateX(6px); }
     .btn-hero { font-size:20px; padding:26px 64px; }
+    .btn[disabled] { opacity:.7; cursor:wait; animation:none; }
 
     .btn-wrap { display:inline-block; position:relative; border-radius:10px; }
     .btn-wrap::before {
@@ -270,7 +249,7 @@ cat > /mnt/user-data/outputs/index.html << 'ENDOFFILE'
     .who-checks li{
       display:flex;gap:14px;align-items:flex-start;
       background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);
-      border-radius:4px;padding:18px 20px;cursor:default;
+      border-radius:4px;padding:18px 20px;cursor:default;text-align:left;
       transition:border-color .25s,background .25s,transform .3s cubic-bezier(.34,1.56,.64,1);
     }
     .who-checks li:hover{border-color:rgba(176,125,58,.4);background:rgba(176,125,58,.06);transform:translateX(6px);}
@@ -279,7 +258,7 @@ cat > /mnt/user-data/outputs/index.html << 'ENDOFFILE'
     .who-checks li div span{font-size:12.5px;color:rgba(255,255,255,.45);line-height:1.65;font-weight:500;}
     .who-checks li div span .hl{color:var(--amber-lt);font-weight:700;}
 
-    .not-for-you{background:var(--bg);border-radius:4px;overflow:hidden;position:sticky;top:90px;box-shadow:0 24px 64px rgba(0,0,0,.3);}
+    .not-for-you{background:var(--bg);border-radius:4px;overflow:hidden;position:sticky;top:90px;box-shadow:0 24px 64px rgba(0,0,0,.3);text-align:left;}
     .nfy-header{background:var(--navy);padding:24px 28px;}
     .nfy-header h3{font-size:18px;color:#fff;line-height:1.15;}
     .nfy-header p{font-size:11.5px;color:rgba(255,255,255,.5);margin-top:6px;font-weight:500;}
@@ -325,7 +304,7 @@ cat > /mnt/user-data/outputs/index.html << 'ENDOFFILE'
     .guarantee-body h4{font-size:clamp(16px,2vw,22px);margin-bottom:10px;color:#fff;line-height:1.2;}
     .guarantee-body h4 span{color:var(--amber-lt);}
     .guarantee-body > div:first-child p{font-size:13.5px;color:rgba(255,255,255,.45);line-height:1.8;font-weight:500;}
-    .g-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .g-list{list-style:none;display:flex;flex-direction:column;gap:10px;text-align:left;}
     .g-list li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,.5);line-height:1.6;font-weight:500;}
     .g-list li::before{content:'✓';color:var(--sage-lt);font-weight:800;flex-shrink:0;}
 
@@ -351,19 +330,20 @@ cat > /mnt/user-data/outputs/index.html << 'ENDOFFILE'
       padding:40px 7%;
       display:flex;
       align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:20px;
+      justify-content:center;
+      flex-direction:column;
+      gap:14px;
       border-top:1px solid rgba(255,255,255,.06);
+      text-align:center;
     }
     .footer-logo { height:36px; width:auto; opacity:.85; }
     .footer-copy { font-size:11px; color:rgba(255,255,255,.35); font-weight:500; letter-spacing:.5px; }
 
     /* ══════════════════════════════════
-       RESPONSIVE
+       RESPONSIVE — TABLET
     ══════════════════════════════════ */
     @media (max-width:1024px){
-      .hero-left{padding:130px 6% 140px;max-width:100%;}
+      .hero-left{padding:150px 6% 140px;max-width:100%;}
       .s-grid{grid-template-columns:1fr;gap:12px;}
       .who-wrap{grid-template-columns:1fr;gap:40px;}
       .not-for-you{position:static;}
@@ -371,29 +351,65 @@ cat > /mnt/user-data/outputs/index.html << 'ENDOFFILE'
       .guarantee-body{grid-template-columns:1fr;gap:22px;}
       .kpi-sep{display:none;} .kpi{padding-right:22px;}
     }
+
+    /* ══════════════════════════════════
+       RESPONSIVE — MOBILE (everything centered)
+    ══════════════════════════════════ */
     @media (max-width:640px){
-      .hero-left,.services,.who,.pricing,.cta{padding-left:5%;padding-right:5%;}
+      .nav{padding:22px 6%;}
+      .nav-logo{height:34px;}
+
+      .hero-left,.services,.who,.pricing,.cta{padding-left:6%;padding-right:6%;}
+
+      .hero-left{
+        display:flex; flex-direction:column; align-items:center;
+        text-align:center; padding-top:140px;
+      }
+      .hero-badge{margin-left:auto;margin-right:auto;}
+      .hero-sub{max-width:100%;}
+      .hero-kpis{justify-content:center;width:100%;}
+      .kpi{align-items:center;padding:0 14px;}
+      .hero-cta{width:100%;display:flex;flex-direction:column;align-items:center;}
+      .btn-wrap{width:100%;}
+
       .btn,.btn-hero{width:100%;justify-content:center;padding:22px 24px;}
+
+      .services-head,.who-left,.pricing-head{text-align:center;}
+      .services-head p,.pricing-head p{margin-left:auto;margin-right:auto;}
+      .s-grid,.metrics{grid-template-columns:1fr;}
+      .s-card{text-align:center;}
+      .s-pills{justify-content:center;}
+
+      .who-checks li{text-align:left;}
+      .not-for-you{text-align:left;}
+
+      .guarantee-top{justify-content:center;text-align:center;padding:18px 20px;}
+      .guarantee-body{padding:24px 20px;text-align:center;}
+      .guarantee-body > div:first-child{text-align:center;}
+      .g-list{align-items:flex-start;margin:0 auto;width:fit-content;text-align:left;}
+
+      .cta-inner{padding:0;}
+
       .metric-n{font-size:50px;}
-      .guarantee-top{padding:18px 20px;}
-      .guarantee-body{padding:24px 20px;}
-      .nav{padding:0 5%;}
-      .nav-logo{height:36px;}
+    }
+
+    @media (max-width:380px){
+      .hero h1{font-size:13vw;}
+      .btn-hero{padding:20px 18px;font-size:16px;}
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="nav">
-    <img src="assets/logo.jpg" alt="Mortgage Logic Systems" class="nav-logo" />
-    <button class="nav-cta" onclick="openCalendly()">Book Free Call →</button>
-  </nav>
-
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-video-wrap">
-      <video autoplay muted loop playsinline poster="assets/hero-poster.jpg">
+    <nav class="nav">
+      <img src="assets/logo.svg" alt="Mortgage Logic Systems" class="nav-logo" width="225" height="60" />
+    </nav>
+    <div class="hero-video-wrap" id="heroVideoWrap">
+      <!-- Poster shows instantly (it's preloaded + tiny), video fades in over it once playable -->
+      <img src="assets/hero-poster.jpg" alt="" class="poster" id="heroPoster" width="1280" height="720" />
+      <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg">
         <source src="assets/hero-video.mp4" type="video/mp4" />
       </video>
     </div>
@@ -420,7 +436,7 @@ cat > /mnt/user-data/outputs/index.html << 'ENDOFFILE'
       </div>
       <div class="hero-cta">
         <div class="btn-wrap">
-          <button class="btn btn-hero" onclick="openCalendly()">
+          <button class="btn btn-hero" onclick="openCalendly(this)">
             <span class="btn-txt">Book Your Free 20-Min Call</span>
             <span class="btn-arr">→</span>
           </button>
@@ -532,7 +548,7 @@ cat > /mnt/user-data/outputs/index.html << 'ENDOFFILE'
       <h2>20 minutes. <span>Zero pressure.</span></h2>
       <p>I'll walk you through the exact system I'd build for your niche.<br><strong style="color:var(--ink)">You leave knowing exactly what's possible.</strong></p>
       <div class="btn-wrap">
-        <button class="btn" onclick="openCalendly()">
+        <button class="btn" onclick="openCalendly(this)">
           <span class="btn-txt">Book Your Free 20-Min Call</span>
           <span class="btn-arr">→</span>
         </button>
@@ -547,43 +563,125 @@ cat > /mnt/user-data/outputs/index.html << 'ENDOFFILE'
 
   <!-- FOOTER -->
   <footer class="footer">
-    <img src="assets/logo.jpg" alt="Mortgage Logic Systems" class="footer-logo" />
-    <span class="footer-copy">© 2025 Mortgage Logic Systems. All rights reserved.</span>
+    <img src="assets/logo.svg" alt="Mortgage Logic Systems" class="footer-logo" width="180" height="48" />
+    <span class="footer-copy">© 2026 Mortgage Logic Systems. All rights reserved.</span>
   </footer>
 
-  <!-- Calendly popup JS -->
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <!-- ═══════════════════════════════════════════
+       SCRIPTS — all deferred/async so they never block
+       first paint. Calendly widget.js is requested at the
+       very top of <head> logically (preconnect) but the
+       script tag itself loads here with "defer", meaning:
+       - it downloads in parallel with everything else
+       - it's guaranteed ready essentially immediately since
+         it's a small file and the connection was warmed up
+       - openCalendly() has a tiny safety-net poll in case of
+         a very slow connection, so the button never silently
+         fails — but in practice the popup opens instantly.
+  ═══════════════════════════════════════════ -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" defer></script>
+
   <script>
-    function openCalendly() {
-      Calendly.initPopupWidget({
-        url: 'https://calendly.com/muhammad-yaqoob-mortgagelogicsystems/free-20-min-strategy-call'
-      });
-      // Fire Meta Pixel conversion event when booking popup opens
-      if (typeof fbq !== 'undefined') {
-        fbq('track', 'InitiateCheckout');
+    var CALENDLY_URL = 'https://calendly.com/muhammad-yaqoob-mortgagelogicsystems/free-20-min-strategy-call';
+
+    function reallyOpenCalendly() {
+      Calendly.initPopupWidget({ url: CALENDLY_URL });
+      if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
+    }
+
+    function openCalendly(btnEl) {
+      // Calendly already loaded (the normal case — widget.js is tiny and
+      // preconnected) → open the overlay instantly. Visitor never leaves the page.
+      if (typeof Calendly !== 'undefined') {
+        reallyOpenCalendly();
+        return false;
+      }
+
+      // Extremely slow connection fallback: show "Loading…" briefly and poll,
+      // so the button never feels broken.
+      if (btnEl) {
+        var label = btnEl.querySelector('.btn-txt');
+        var original = label ? label.textContent : null;
+        btnEl.setAttribute('disabled', 'true');
+        if (label) label.textContent = 'Loading…';
+
+        var waited = 0;
+        var poll = setInterval(function () {
+          waited += 100;
+          if (typeof Calendly !== 'undefined') {
+            clearInterval(poll);
+            btnEl.removeAttribute('disabled');
+            if (label && original) label.textContent = original;
+            reallyOpenCalendly();
+          } else if (waited >= 6000) {
+            clearInterval(poll);
+            btnEl.removeAttribute('disabled');
+            if (label && original) label.textContent = original;
+            window.open(CALENDLY_URL, '_blank');
+          }
+        }, 100);
       }
       return false;
     }
 
-    // Track successful booking (Calendly fires this event)
-    window.addEventListener('message', function(e) {
-      if (e.data.event && e.data.event === 'calendly.event_scheduled') {
-        if (typeof fbq !== 'undefined') {
-          fbq('track', 'Lead'); // Fires when someone actually books
-        }
+    // Track successful booking (Calendly fires this postMessage event from the iframe)
+    window.addEventListener('message', function (e) {
+      if (e.data && e.data.event === 'calendly.event_scheduled') {
+        if (typeof fbq !== 'undefined') fbq('track', 'Lead');
       }
     });
 
+    // Hero video: fade video in over the poster image once it can actually play,
+    // so there's never a blank/black flash — poster is visible immediately,
+    // video takes over the instant it's ready.
+    (function () {
+      var video = document.getElementById('heroVideo');
+      var wrap = document.getElementById('heroVideoWrap');
+      var poster = document.getElementById('heroPoster');
+      if (!video) return;
+
+      function showVideo() {
+        video.classList.add('is-ready');
+        if (poster) poster.classList.add('hide');
+      }
+      video.addEventListener('canplay', showVideo, { once: true });
+      video.addEventListener('error', function () {
+        wrap.classList.add('video-fallback'); // poster stays visible as the background
+      });
+      // Safety check in case 'canplay' already fired before listener attached
+      if (video.readyState >= 3) showVideo();
+    })();
+
     // Scroll reveal
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
       });
     }, { threshold: 0.08 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
   </script>
+
+  <!-- ═══════════════════════════════════════════
+       META PIXEL — loaded last (after the page is interactive)
+       and via async injection so it never delays first paint
+       or the video/Calendly experience. Replace YOUR_PIXEL_ID.
+  ═══════════════════════════════════════════ -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID'); // ← REPLACE THIS
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/>
+  </noscript>
+
 </body>
 </html>
-ENDOFFILE
-echo "Done"
-Done
